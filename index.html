@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico Executivo | Mentoria de IA para Liderança</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              900: '#0B132B',
+              800: '#1C2541',
+              700: '#2A385B',
+            },
+            accent: {
+              500: '#2563EB',
+              600: '#1D4ED8',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+    }
+    .checkbox-card:has(input:checked),
+    .radio-card:has(input:checked) {
+      border-color: #2563EB;
+      background-color: #EFF6FF;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+    }
+    .checkbox-card:has(input:checked) .check-indicator,
+    .radio-card:has(input:checked) .radio-indicator {
+      background-color: #2563EB;
+      border-color: #2563EB;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background-color: #FFFFFF;
+      }
+      #report-section {
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-blue-100 selection:text-blue-900">
+
+  <!-- Top Header -->
+  <header class="bg-navy-900 text-white border-b border-slate-800 no-print">
+    <div class="max-w-4xl mx-auto px-6 py-8 md:py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-xs font-medium tracking-wide uppercase mb-3">
+          <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+          Onboarding Executivo
+        </div>
+        <h1 class="font-display text-2xl md:text-3xl font-bold tracking-tight text-white">
+          Diagnóstico Estratégico de IA
+        </h1>
+        <p class="text-slate-300 text-sm md:text-base mt-1 max-w-xl">
+          Mapeamento personalizado para estruturar uma trilha de Inteligência Artificial aplicada aos seus primeiros 90 dias na nova cadeira.
+        </p>
+      </div>
+      <div class="flex items-center gap-3 self-start md:self-center">
+        <button type="button" onclick="fillDemoData()" class="text-xs font-medium text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 rounded-lg px-3 py-2 transition">
+          Preencher Exemplo
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 md:py-12">
+
+    <!-- FORM SECTION -->
+    <form id="diagnostic-form" class="space-y-8 no-print">
+
+      <!-- Pillar 1: Perfil e Transição -->
+      <section class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-8 h-8 rounded-lg bg-blue-600 text-white font-display font-bold text-sm flex items-center justify-center">01</div>
+          <div>
+            <h2 class="font-display text-lg md:text-xl font-bold text-slate-900">Contexto Executivo & Transição</h2>
+            <p class="text-xs md:text-sm text-slate-500">Para alinhar o vocabulário e os casos de uso ao seu momento atual.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="execName">Seu Nome *</label>
+            <input type="text" id="execName" required placeholder="Ex: Carlos Mendes"
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="roleArea">Diretoria / Área de Liderança *</label>
+            <select id="roleArea" required
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition">
+              <option value="">Selecione sua área principal...</option>
+              <option value="Operações & Supply Chain">Operações & Supply Chain</option>
+              <option value="Comercial, Vendas & Receita (CRO)">Comercial, Vendas & Receita (CRO)</option>
+              <option value="Marketing, Marca & Growth (CMO)">Marketing, Marca & Growth (CMO)</option>
+              <option value="Finanças, Controladoria & M&A (CFO)">Finanças, Controladoria & M&A (CFO)</option>
+              <option value="Pessoas, Cultura & RH (CHRO)">Pessoas, Cultura & RH (CHRO)</option>
+              <option value="Tecnologia, Produto & Dados (CTO/CPO)">Tecnologia, Produto & Dados (CTO/CPO)</option>
+              <option value="Jurídico, Riscos & Compliance">Jurídico, Riscos & Compliance</option>
+              <option value="Diretoria Geral / Unidade de Negócio (CEO/BU)">Diretoria Geral / Unidade de Negócio (CEO/BU)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="industry">Setor da Nova Empresa *</label>
+            <select id="industry" required
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition">
+              <option value="">Selecione o segmento...</option>
+              <option value="Serviços Financeiros, Bancos & Seguros">Serviços Financeiros, Bancos & Seguros</option>
+              <option value="Indústria, Manufatura & Agro">Indústria, Manufatura & Agro</option>
+              <option value="Varejo, Bens de Consumo & E-commerce">Varejo, Bens de Consumo & E-commerce</option>
+              <option value="Saúde, Farmacêutica & Biotecnologia">Saúde, Farmacêutica & Biotecnologia</option>
+              <option value="Tecnologia, SaaS & Telecom">Tecnologia, SaaS & Telecom</option>
+              <option value="Energia, Infraestrutura & Logística">Energia, Infraestrutura & Logística</option>
+              <option value="Serviços B2B, Consultoria & Educação">Serviços B2B, Consultoria & Educação</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="companySize">Porte da Empresa & Time Liderado</label>
+            <select id="companySize"
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition">
+              <option value="Média empresa (100–500 func.) | Time de até 20 pessoas">Média empresa (100–500 func.) | Time de até 20 pessoas</option>
+              <option value="Grande empresa (500–2.000 func.) | Time de 20 a 80 pessoas" selected>Grande empresa (500–2.000 func.) | Time de 20 a 80 pessoas</option>
+              <option value="Corporação Enterprise (+2.000 func.) | Time +80 pessoas">Corporação Enterprise (+2.000 func.) | Time +80 pessoas</option>
+              <option value="Scale-up / Estrutura enxuta | Liderança matricial">Scale-up / Estrutura enxuta | Liderança matricial</option>
+            </select>
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="transitionChallenge">
+              Qual é o seu principal desafio ou entrega crítica nos próximos 90 dias? *
+            </label>
+            <textarea id="transitionChallenge" rows="3" required
+              placeholder="Ex: Diagnosticar ineficiências da operação herdada, apresentar o plano estratégico de 2026 para o Conselho, reestruturar rituais comerciais ou integrar duas áreas..."
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pillar 2: Maturidade e Dores de Rotina -->
+      <section class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-8 h-8 rounded-lg bg-blue-600 text-white font-display font-bold text-sm flex items-center justify-center">02</div>
+          <div>
+            <h2 class="font-display text-lg md:text-xl font-bold text-slate-900">Maturidade Atual & Alavancas de Produtividade</h2>
+            <p class="text-xs md:text-sm text-slate-500">Onde a IA pode devolver mais horas estratégicas na sua semana imediatamente.</p>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-sm font-semibold text-slate-700 mb-3">Como você descreveria seu uso atual de Inteligência Artificial? *</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label class="radio-card cursor-pointer rounded-xl border border-slate-200 p-4 flex items-start gap-3 transition">
+              <input type="radio" name="maturity" value="Iniciante (Uso pontual ou nulo)" class="mt-1 accent-blue-600" required />
+              <div>
+                <div class="font-semibold text-sm text-slate-900">Iniciante / Explorador</div>
+                <div class="text-xs text-slate-500 mt-0.5">Testei poucas vezes para perguntas simples, ainda não faz parte da rotina.</div>
+              </div>
+            </label>
+            <label class="radio-card cursor-pointer rounded-xl border border-slate-200 p-4 flex items-start gap-3 transition">
+              <input type="radio" name="maturity" value="Básico (E-mails e resumos)" class="mt-1 accent-blue-600" />
+              <div>
+                <div class="font-semibold text-sm text-slate-900">Usuário Básico</div>
+                <div class="text-xs text-slate-500 mt-0.5">Uso ChatGPT/Copilot para redigir e-mails, traduzir ou resumir textos.</div>
+              </div>
+            </label>
+            <label class="radio-card cursor-pointer rounded-xl border border-slate-200 p-4 flex items-start gap-3 transition">
+              <input type="radio" name="maturity" value="Intermediário (Análise e prompts estruturados)" class="mt-1 accent-blue-600" />
+              <div>
+                <div class="font-semibold text-sm text-slate-900">Usuário Intermediário</div>
+                <div class="text-xs text-slate-500 mt-0.5">Faço upload de PDFs/planilhas e crio prompts mais detalhados no dia a dia.</div>
+              </div>
+            </label>
+            <label class="radio-card cursor-pointer rounded-xl border border-slate-200 p-4 flex items-start gap-3 transition">
+              <input type="radio" name="maturity" value="Avançado (Foco em escala e gestão de time)" class="mt-1 accent-blue-600" />
+              <div>
+                <div class="font-semibold text-sm text-slate-900">Avançado / Visão de Escala</div>
+                <div class="text-xs text-slate-500 mt-0.5">Já domino o básico, quero criar assistentes próprios e liderar a adoção no time.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-3">Quais atividades mais consomem seu tempo hoje? (Selecione até 4 prioridades)</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="pain-points-group">
+            <label class="checkbox-card cursor-pointer rounded-xl border border-slate-200 p-3.5 flex items-center gap-3 transition">
+              <input type="checkbox" name="pains" value="Síntese de relatórios extensos, contratos e atas" class="accent-blue-600 w-4 h-4" />
+              <span class="text-sm text-slate-700 font-medium">Ler e sintetizar relatórios extensos, contratos e atas</span>
+            </label>
+            <label class="checkbox-card cursor-pointer rounded-xl border border-slate-200 p-3.5 flex items-center gap-3 transition">
+              <input type="checkbox" name="pains" value="Criação de apresentações executivas e pitches para Board" class="accent-blue-600 w-4 h-4" />
+              <span class="text-sm text-slate-700 font-medium">Montar apresentações executivas e materiais para Board</span>
+            </label>
+            <label class="checkbox-card cursor-pointer rounded-xl border border-slate-200 p-3.5 flex items-center gap-3 transition">
+              <input type="checkbox" name="pains" value="Análise de planilhas, KPIs e cruzamento de dados" class="accent-blue-600 w-4 h-4" />
+              <span class="text-sm text-slate-700 font-medium">Analisar planilhas, KPIs e cruzar dados financeiros/operacionais</span>
+            </label>
+            <label class="checkbox-card cursor-pointer rounded-xl border border-slate-200 p-3.5 flex items-center gap-3 transition">
+              <input type="checkbox" name="pains" value="Pesquisa de mercado, concorrentes e benchmarks" class="accent-blue-600 w-4 h-4" />
+              <span class="text-sm text-slate-700 font-medium">Pesquisa profunda de mercado, concorrentes e benchmarks</span>
+            </label>
+            <label class="checkbox-card cursor-pointer rounded-xl border border-slate-200 p-3.5 flex items-center gap-3 transition">
+              <input type="checkbox" name="pains" value="Comunicação estratégica, e-mails sensíveis e alinhamentos" class="accent-blue-600 w-4 h-4" />
+              <span class="text-sm text-slate-700 font-medium">Redação de comunicados sensíveis, e-mails e alinhamentos</span>
+            </label>
+            <label class="checkbox-card cursor-pointer rounded-xl border border-slate-200 p-3.5 flex items-center gap-3 transition">
+              <input type="checkbox" name="pains" value="Preparação de reuniões, pautas e planos de ação" class="accent-blue-600 w-4 h-4" />
+              <span class="text-sm text-slate-700 font-medium">Preparação de reuniões, rituais de gestão e planos de ação</span>
+            </label>
+            <label class="checkbox-card cursor-pointer rounded-xl border border-slate-200 p-3.5 flex items-center gap-3 transition">
+              <input type="checkbox" name="pains" value="Automatizar fluxos repetitivos da equipe" class="accent-blue-600 w-4 h-4" />
+              <span class="text-sm text-slate-700 font-medium">Identificar e automatizar gargalos repetitivos da equipe</span>
+            </label>
+            <label class="checkbox-card cursor-pointer rounded-xl border border-slate-200 p-3.5 flex items-center gap-3 transition">
+              <input type="checkbox" name="pains" value="Tomada de decisão e sparring estratégico (simulação de cenários)" class="accent-blue-600 w-4 h-4" />
+              <span class="text-sm text-slate-700 font-medium">Sparring estratégico e simulação de cenários de decisão</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pillar 3: Ambiente Tecnológico & Governança -->
+      <section class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-8 h-8 rounded-lg bg-blue-600 text-white font-display font-bold text-sm flex items-center justify-center">03</div>
+          <div>
+            <h2 class="font-display text-lg md:text-xl font-bold text-slate-900">Ecossistema Tecnológico & Compliance</h2>
+            <p class="text-xs md:text-sm text-slate-500">Garante que tudo o que ensinarmos funcione dentro das regras da nova empresa.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="techSuite">Suíte Corporativa Principal da Empresa *</label>
+            <select id="techSuite" required
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition">
+              <option value="Microsoft 365 (Teams, Excel, Outlook, PowerPoint)">Microsoft 365 (Teams, Excel, Outlook, PPT)</option>
+              <option value="Google Workspace (Gmail, Drive, Docs, Sheets, Meet)">Google Workspace (Gmail, Drive, Docs, Sheets)</option>
+              <option value="Ambiente Híbrido (Microsoft + Ferramentas Cloud)">Ambiente Híbrido (Microsoft + Ferramentas Cloud)</option>
+              <option value="Ainda estou mapeando o ambiente interno">Ainda estou mapeando o ambiente interno</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="securityPolicy">Política de TI e Privacidade de Dados *</label>
+            <select id="securityPolicy" required
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition">
+              <option value="Restrita (Bloqueio de IAs externas; exige licença corporativa)">Restrita (Bloqueio de IAs externas / exige conta Enterprise)</option>
+              <option value="Moderada (Acesso liberado, mas sem upload de dados confidenciais)">Moderada (Acesso liberado, mas exige anonimização de dados)</option>
+              <option value="Aberta / Incentivada (Empresa estimula uso de IA)">Aberta / Incentivada (Empresa estimula adoção de IA)</option>
+              <option value="Desconhecida (Preciso validar com Segurança da Informação)">Ainda não sei / Vou validar com TI</option>
+            </select>
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Licenças e Assinaturas Disponíveis</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <label class="radio-card cursor-pointer rounded-xl border border-slate-200 p-3.5 flex items-start gap-2.5 transition">
+                <input type="radio" name="budgetTools" value="Empresa fornece Copilot / Gemini corporativo" class="mt-1 accent-blue-600" checked />
+                <span class="text-xs font-medium text-slate-700">A empresa já fornece licença corporativa (Copilot/Gemini/ChatGPT)</span>
+              </label>
+              <label class="radio-card cursor-pointer rounded-xl border border-slate-200 p-3.5 flex items-start gap-2.5 transition">
+                <input type="radio" name="budgetTools" value="Disposto a assinar ferramentas Pro (US$ 20–60/mês)" class="mt-1 accent-blue-600" />
+                <span class="text-xs font-medium text-slate-700">Tenho disposição para assinar ferramentas Pro pessoais (ex: ChatGPT Plus, Claude)</span>
+              </label>
+              <label class="radio-card cursor-pointer rounded-xl border border-slate-200 p-3.5 flex items-start gap-2.5 transition">
+                <input type="radio" name="budgetTools" value="Focar em versões gratuitas inicialmente" class="mt-1 accent-blue-600" />
+                <span class="text-xs font-medium text-slate-700">Prefiro começar explorando o máximo das versões gratuitas</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pillar 4: Formato, Dinâmica e Logística -->
+      <section class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-8 h-8 rounded-lg bg-blue-600 text-white font-display font-bold text-sm flex items-center justify-center">04</div>
+          <div>
+            <h2 class="font-display text-lg md:text-xl font-bold text-slate-900">Formato da Mentoria & Preferências de Aprendizado</h2>
+            <p class="text-xs md:text-sm text-slate-500">Para desenhar o cronograma, carga horária e proposta comercial ideal.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="focusBalance">Equilíbrio Ideal das Sessões *</label>
+            <select id="focusBalance" required
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition">
+              <option value="70% Prática Mão na Massa / 30% Visão Estratégica">70% Prática Mão na Massa (Prompts, telas, casos reais) / 30% Estratégia</option>
+              <option value="50% Prática Pessoal / 50% Liderança e Governança de Time">50% Produtividade Pessoal / 50% Como liderar e cobrar IA do meu time</option>
+              <option value="30% Prática / 70% Visão Executiva, ROI e Tendências">30% Ferramentas / 70% Visão Executiva, ROI, Tendências e Tomada de Decisão</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="sessionFormat">Modalidade Preferida *</label>
+            <select id="sessionFormat" required
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition">
+              <option value="Online ao vivo (Zoom / Meet / Teams) com compartilhamento de tela">Online ao vivo (com compartilhamento de tela e gravação)</option>
+              <option value="Presencial (Escritório ou local combinado)">Presencial</option>
+              <option value="Híbrido (1ª aula presencial + demais online)">Híbrido (Início presencial + acompanhamento online)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="cadence">Cadência e Duração Sugerida</label>
+            <select id="cadence"
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition">
+              <option value="Intensivo: 4 encontros de 1h30 (semanal - 1 mês)">Intensivo: 4 encontros de 1h30 (semanal — 1 mês)</option>
+              <option value="Recomendado: 6 encontros de 1h30 (semanal - 6 semanas)" selected>Recomendado: 6 encontros de 1h30 (semanal — 6 semanas)</option>
+              <option value="Acompanhamento 90 dias: 8 encontros de 1h (semanal/quinzenal)">Acompanhamento 90 dias: 8 encontros de 1h</option>
+              <option value="Imersão VIP: 2 blocos de 3h (workshop executivo)">Imersão VIP: 2 blocos de 3h</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="bestSchedule">Melhores Dias / Janelas de Horário</label>
+            <input type="text" id="bestSchedule" placeholder="Ex: Terças e Quintas das 07h30 às 09h00, ou após 18h"
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition" />
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="extraNotes">Expectativas adicionais ou ferramentas específicas que gostaria de dominar?</label>
+            <input type="text" id="extraNotes" placeholder="Ex: Quero aprender a criar agentes personalizados, usar IA no Excel sem vazar dados, etc."
+              class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Submit Button -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+        <p class="text-xs text-slate-500">
+          As informações preenchidas geram automaticamente um plano de estudo preliminar e o resumo para estruturarmos suas aulas.
+        </p>
+        <button type="submit"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-display font-semibold text-sm px-8 py-4 rounded-xl shadow-lg shadow-blue-600/20 transition transform active:scale-[0.99]">
+          <span>Gerar Diagnóstico & Trilha de Aulas</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </button>
+      </div>
+    </form>
+
+    <!-- GENERATED REPORT / INSIGHTS SECTION -->
+    <section id="report-section" class="hidden space-y-6">
+      
+      <!-- Action Bar -->
+      <div class="bg-navy-900 text-white rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 no-print">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-emerald-400 font-semibold">Diagnóstico Concluído</span>
+          <h3 class="font-display text-lg font-bold">Plano Preliminar Gerado com Sucesso</h3>
+        </div>
+        <div class="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
+          <button type="button" onclick="sendReportViaWhatsApp()"
+            class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition shadow-md shadow-emerald-950/30">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.176L2 22l4.971-1.304A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+            <span>Enviar pelo WhatsApp</span>
+          </button>
+          <button type="button" onclick="copyReportText()" id="copy-btn"
+            class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+            <span>Copiar Relatório</span>
+          </button>
+          <button type="button" onclick="window.print()"
+            class="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-4 py-2.5 rounded-xl border border-slate-700 transition">
+            <span>Salvar PDF</span>
+          </button>
+          <button type="button" onclick="editForm()"
+            class="inline-flex items-center justify-center text-xs text-slate-400 hover:text-white px-3 py-2.5 transition">
+            Editar Respostas
+          </button>
+        </div>
+      </div>
+
+      <!-- Report Card -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-10 space-y-8" id="printable-report">
+        
+        <!-- Header Info -->
+        <div class="border-b border-slate-200 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Briefing Executivo & Arquitetura de Mentoria</p>
+            <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-900" id="rep-name">—</h2>
+            <p class="text-sm text-slate-600 mt-1" id="rep-subtitle">—</p>
+          </div>
+          <div class="text-left md:text-right">
+            <span class="inline-block px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-semibold" id="rep-maturity-badge">—</span>
+            <p class="text-xs text-slate-400 mt-1" id="rep-date"></p>
+          </div>
+        </div>
+
+        <!-- Strategic Insights Grid -->
+        <div>
+          <h3 class="font-display text-base font-bold text-slate-900 uppercase tracking-wide mb-4 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+            Insights Estratégicos para Desenho das Aulas
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="rep-insights-cards">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- Recommended Syllabus -->
+        <div class="bg-slate-50 rounded-xl border border-slate-200/80 p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+            <h3 class="font-display text-base font-bold text-slate-900">Trilha Sugerida de Encontros (Ementa Base)</h3>
+            <span class="text-xs font-semibold text-blue-700 bg-blue-100 px-2.5 py-1 rounded-md" id="rep-cadence-badge">—</span>
+          </div>
+          <div class="space-y-3" id="rep-syllabus">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- Complete Briefing Summary -->
+        <div>
+          <h3 class="font-display text-base font-bold text-slate-900 uppercase tracking-wide mb-4 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-slate-800"></span>
+            Resumo Estruturado das Respostas
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-sm border-t border-slate-100 pt-4" id="rep-raw-summary">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- Next Step Footer inside Report -->
+        <div class="bg-blue-50 border border-blue-200/80 rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 no-print">
+          <div class="text-sm text-blue-950">
+            <p class="font-bold">Próximo Passo:</p>
+            <p class="text-xs text-blue-800 mt-0.5">Envie este diagnóstico diretamente pelo WhatsApp para receber o cronograma detalhado e a proposta comercial.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+            <button type="button" onclick="sendReportViaWhatsApp()"
+              class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-5 py-3 rounded-xl transition shadow-sm">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.17
